@@ -1,0 +1,71 @@
+[project]
+name = "py-video-synth"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "zztkm", email = "zztkm@tsurutatakumi.info" }
+]
+dependencies = [
+    "pyaudio>=0.2.14",
+    "numpy>=2.0.0",
+    "pygame>=2.5.2",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+virtual = true
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/py_video_synth"]
+
+[tool.ruff]
+exclude = [
+    ".eggs",
+    "__pypackages__",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".hypothesis",
+    ".__pycache__",
+]
+
+line-length = 128
+target-version = "py312"
+
+[tool.ruff.lint]
+ignore = [
+    "D100",
+    "D104",
+    "D400",
+    "D415",
+    "D203",
+    "D213",
+    "COM812",
+    "ISC001",
+    "ANN201",
+    "S101",   # assert
+]
+select = ["ALL"]
+
+[tool.ruff.format]
+# Like Black, use double quotes for strings.
+quote-style = "double"
+
+# Like Black, indent with spaces, rather than tabs.
+indent-style = "space"
+
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"
+
